@@ -37,6 +37,16 @@ public class MainActivity extends AppCompatActivity {
             tabLayout.addTab(tabLayout.newTab().setText("Details!"));
             tabLayout.addTab(tabLayout.newTab().setText("History!"));
             tabLayout.setTabGravity(TabLayout.GRAVITY_CENTER);
+            case R.id.lightt:
+            {
+                lightTheme();
+                todayFragment.setLightTheme();
+                historyFragment.lightTheme();
+                Toast.makeText(this,"LIGHT",Toast.LENGTH_SHORT).show();
+                editor.putInt("Theme",0);
+                editor.commit();
+                return true;
+            }
 
             final ViewPager viewPager = (ViewPager)findViewById(R.id.pager);
             final PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
