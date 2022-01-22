@@ -252,6 +252,14 @@ public class MainActivity extends AppCompatActivity implements Today.OnFragmentI
         AppInfoExtractor apk = new AppInfoExtractor(this);
         apps = apk.GetAllInstalledApkInfo();
 
+        for (int i = 0 ; i < apps.size(); i ++) {
+
+            appPackage = apps.get(i);
+            appName = apk.GetAppName(apps.get(i));
+            appIco = apk.getAppIconByPackageName(apps.get(i));
+
+            appInfoList.add(new AppInfoList(appIco,appName,appPackage,appTime));
+        }
         detailsFragment.setArrayList(appInfoList);
         //todayFragment.setMostUsedApp(appInfoList.get(0));
     }
